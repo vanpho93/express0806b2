@@ -3,14 +3,12 @@ const bodyParser = require('body-parser');
 const PhepTinh = require('./PhepTinh');
 
 const parser = bodyParser.urlencoded({ extended: false });
-
 class User {
     constructor(username, password) {
         this.username = username;
         this.password = password;
     }
 }
-
 const arrUsers = [
     new User('pho', '123'),
     new User('khoa', '321'),
@@ -34,7 +32,8 @@ app.post('/dangky', parser, (req, res) => {
     const { username, password } = req.body;
     const user = new User(username, password);
     arrUsers.push(user);
-    res.send('Dang ky thanh cong');
+    res.send('Dang ky thanh cong: ' + username);
+    // res.send('Dang ky thanh cong');
 });
 
 app.post('/tinh', parser, (req, res) => {
