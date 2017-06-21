@@ -9,8 +9,14 @@ app.use(express.static('public'));
 
 app.get('/', (req, res) => res.render('home'));
 
+app.get('/tinh', (req, res) => res.render('tinh'));
+
+app.post('/tinh', parser, (req, res) => {
+
+});
+
 app.post('/xuLy', parser, (req, res) => {
-    console.log(req.body);
+    console.log(req.body.username);
     res.send('Da nhan duoc request');
 });
 
