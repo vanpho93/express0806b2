@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const PhepTinh = require('./PhepTinh');
+
 const parser = bodyParser.urlencoded({ extended: false });
+
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -12,7 +15,9 @@ app.get('/', (req, res) => res.render('home'));
 app.get('/tinh', (req, res) => res.render('tinh'));
 
 app.post('/tinh', parser, (req, res) => {
-
+    const { soA, soB, tenPt } = req.body;
+    const pt = new PhepTinh(soA, soB, tenPt);
+    res.send(pt.getResultString());
 });
 
 app.post('/xuLy', parser, (req, res) => {
