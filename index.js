@@ -28,11 +28,14 @@ app.get('/tinh', (req, res) => res.render('tinh'));
 
 app.get('/admin', (req, res) => res.render('admin', { arrUsers })); //Route 1
 
-// app.get('/dangky', (req, res) => res.render('dangKy'));
+app.get('/dangky', (req, res) => res.render('dangky'));
 
-// app.post('dangky', parser, (req, res) => {
-
-// });
+app.post('/dangky', parser, (req, res) => {
+    const { username, password } = req.body;
+    const user = new User(username, password);
+    arrUsers.push(user);
+    res.send('Dang ky thanh cong');
+});
 
 app.post('/tinh', parser, (req, res) => {
     const { soA, soB, tenPt } = req.body;
