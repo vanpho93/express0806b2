@@ -4,6 +4,13 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style> 
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                padding: 10px;
+            }
+        </style>   
     </head>
     <body>
         <table>
@@ -12,16 +19,13 @@
                 <td>username</td>
                 <td>password</td>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>Pho</td>
-                <td>123</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>khoa</td>
-                <td>321</td>
-            </tr>
+            <% arrUsers.forEach((e, i) => { %>
+                <tr>
+                    <td><%= i + 1 %></td>
+                    <td><%= e.username %></td>
+                    <td><%= e.password %></td>
+                </tr>
+            <% }); %>
         </table>
     </body>
 </html>
